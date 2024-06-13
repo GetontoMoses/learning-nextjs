@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -6,6 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
 import type { Post } from "../types/posts";
 
 interface PostCardProps {
@@ -14,7 +18,7 @@ interface PostCardProps {
 
 export default function PostCard({ post }: PostCardProps) {
   return (
-    <Card>
+    <Card className="mb-4">
       <CardHeader>
         <CardTitle>
           {post.id}. {post.title}
@@ -23,7 +27,9 @@ export default function PostCard({ post }: PostCardProps) {
       </CardHeader>
       <CardContent>{post.body}</CardContent>
       <CardFooter>
-        <a href="#">Read more</a>
+        <a href={`/posts/${post.id}`}>
+          <Button>Read more</Button>
+        </a>
       </CardFooter>
     </Card>
   );
