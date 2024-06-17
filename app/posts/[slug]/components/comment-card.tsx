@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -5,14 +7,10 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import type { Comment } from "../../types/posts";
+import CommentReplyForm from "./comment-reply-form";
 
-interface CommentCardProps {
-  comment: Comment;
-}
-
-export default function Component({ comment }: CommentCardProps) {
+export default function Component({ comment }: { comment: Comment }) {
   return (
     <Card className="w-full mt-4">
       <CardHeader>
@@ -20,7 +18,7 @@ export default function Component({ comment }: CommentCardProps) {
       </CardHeader>
       <CardContent>{comment.body}</CardContent>
       <CardFooter>
-        <Button variant="secondary">Reply</Button>
+        <CommentReplyForm />
       </CardFooter>
     </Card>
   );
